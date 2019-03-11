@@ -1,0 +1,71 @@
+%%HP: T(0)A(D)F(.);
+@ Argumentos:
+@ Autor:
+@ E-mail:
+@ VersiÛn:
+@ Creado con HPUserEdit 6
+DIR
+  VPRES
+    ´
+    "VALOR PRESENTE"
+    {
+    { "F" "Valor futuro"  }
+    { "i" "Taxa de juros"  }
+    { "n" "N˙mero de perÌodos"  }
+    }    
+    { 2 3 } @ Tab e Colunas
+    { } @ Reset
+    { } @ Default
+    INFORM
+    DROP @ Descarta valor de saida do inform
+    OBJç DROP @Tira da lista
+    ç F I n
+      ´
+      "Valor presente: "
+      'F = P*(1+I)^n' 'P' 1 ROOT 3. RND çSTR +
+      MSGBOX
+      ª
+    ª             
+  VFUT
+    ´
+    "VALOR FUTURO"
+    {
+    { "P" "Valor presente"  }
+    { "i" "Taxa de juros"  }
+    { "n" "N˙mero de perÌodos"  }
+    }
+    { 2 3 } @ Tab e Colunas
+    { } @ Reset
+    { } @ Default
+    INFORM
+    DROP @ Descarta valor de saida do inform
+    OBJç DROP @Tira da lista
+    ç P I n
+      ´
+      "Valor futuro: "
+      'F = P*(1+I)^n' 'F' 1 ROOT 3. RND çSTR +
+      MSGBOX
+      ª
+    ª    
+  $CONFIG
+    ´1000 ATTACH ª               @ ´ #integer ATTACH ª         @
+
+  $HIDDEN
+    { }                      @ { hidden identifiers ...  } @
+
+  $VISIBLE
+    {VPRES,VFUT}                      @ { visible identifiers ... } @
+
+  $ROMID
+    1000                     @ #integer
+
+  $TITLE
+    "ENGEC
+     Author: VICTOR FUCKING PEREIRA
+     Calc: HP50G
+     Version:1.00"               @ "Library Title"             @
+END
+
+HOME 'dirTemp' PGDIR
+'dirTemp' STO
+dirTemp CRLIB
